@@ -19,11 +19,18 @@ const app= express();
 
 app.set("trust proxy", 1);
 app.use(
-    cors({
-        origin: true,
-        credentials: true,
-    })
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || env.clientOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
 );
+
 app.use(express.json({limit:"1mb"}));
 app.use(express.urlencoded({extended:true, limit:"1mb"}));
 app.use(cookieParser());
