@@ -18,14 +18,21 @@ const versionsRouter = require("./routes/versions");
 const app= express();
 
 app.set("trust proxy", 1);
+
+console.log("Allowed Origins:", env.clientOrigins);
+
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log("Incoming Origin:", origin);
+
       if (!origin || env.clientOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
+        console.log("Allowed");
+        return callback(null, true);
       }
+
+      console.log("Blocked");
+      return callback(null, false);
     },
     credentials: true,
   })
