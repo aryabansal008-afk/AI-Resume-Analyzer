@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: "https://ai-resume-analyser-backend-ls59.onrender.com" + "/api",
+  baseURL: "/api",
   withCredentials: true,
   headers: { "Content-Type": "application/json" },
 });
@@ -21,3 +21,5 @@ apiClient.interceptors.response.use(
     });
   }
 );
+
+//baseURL: "https://ai-resume-analyser-backend-ls59.onrender.com" + "/api",
