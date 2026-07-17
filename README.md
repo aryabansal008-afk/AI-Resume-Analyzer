@@ -1,6 +1,6 @@
 # AI Resume Analyzer 
 
-An AI powered Resume Checker built using the MERN Stack and Google's Gemini API.
+An AI powered Resume Checker built using the MERN Stack and Google's Gemini API
 
 The application analyzes resumes, evaluates ATS compatibility, provides actionable feedback, rewrites weak resume bullets, maintains complete version history, compares resume revisions and visualizes improvements through an analytics dashboard.
 
